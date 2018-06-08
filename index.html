@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>bager</title>
+  <style type="text/css">
+    body {
+      background: yellow;
+    }
+    canvas{
+      background: white;
+      image-rendering: pixelated;
+    }
+  </style>
+</head>
+<body>
+<canvas width=800 height=600></canvas>
+<script>
+  const canvas = document.querySelector('canvas');
+  const context = canvas.getContext('2d');
+
+  const sizeX = 800;
+  const sizeY = 600;
+
+  for (let donguX = 0; donguX < sizeX; donguX++) {
+    for (let donguY = 0; donguY < sizeY; donguY++) {
+
+
+      const x = donguX / sizeX;
+      const y = donguY / sizeY;
+
+
+      // this snippet is written by @bagerakbay
+      const r=Math.abs(parseFloat(String(((((0.14882874)+(x))/(Math.cos((y)/(0.9448285))))*(Math.sin(Math.cos(Math.cos((0.20120132)+(y))))))*(Math.cos(((Math.cos(x))/(Math.cos(x)))+(((y)/(y))-((0.11766696)/(x))))))));
+      const g=Math.abs(parseFloat(String(((((-0.6882678)+(x))/(Math.cos((y)/(0.28933692))))*(Math.sin(Math.cos(Math.cos((0.5322257)+(y))))))*(Math.cos(((Math.cos(x))/(Math.cos(x)))+(((y)/(y))-((0.5733756)/(x))))))));
+      const b=Math.abs(parseFloat(String(((((0.018505812)+(x))/(Math.cos((y)/(0.26152205))))*(Math.sin(Math.cos(Math.cos((-0.11857343)+(y))))))*(Math.cos(((Math.cos(x))/(Math.cos(x)))+(((y)/(y))-((-0.35277748)/(x))))) )));
+
+
+        const multipy = 255;
+        const rgb = 'rgb(' + (r * (multipy)) + ', ' + (g * (multipy)) + ' , ' + (b * (multipy)) + ')';
+        context.fillStyle = rgb;
+        context.fillRect(x * sizeX, y * sizeY, 1, 1);
+
+    }
+  }
+</script>
+</body>
+</html>
